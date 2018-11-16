@@ -1,5 +1,7 @@
 FROM node:8
 
+USER root
+
 sudo usermod -a -G docker $USER
 
 # Create app directory
