@@ -22,5 +22,12 @@ pipeline {
 						}
               }
 			}
+			stage("Run") {
+            steps {
+			    script {
+                   sh 'npm start'
+						}
+              }
+			}
     }
 }
