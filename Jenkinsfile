@@ -13,19 +13,12 @@ pipeline {
                 checkout scm
 				          }
               }
-		stage('Docker Build') {
-		agent {
-		dockerfile {
-			filename 'Dockerfile'
+			stage("Build") {
+            steps {
+			    script {
+                        sh 'docker build -t node-test .'
+						}
+              }
 			}
-		}
-		steps {
-	       script {
-                   sh 'node -v'
-                   sh 'npm -v'
-                   sh 'npm install'
-			}
-			}
-		}
-    }
+	   }
 }
