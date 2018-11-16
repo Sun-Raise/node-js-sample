@@ -13,14 +13,21 @@ pipeline {
                 checkout scm
 				          }
               }
-			stage("build") {
-					  docker.image('node:8').inside {
-
-					  steps("NPM Install ") {
-						sh "npm install"
-					  }
-					  }
-					  }
-					  
+			stage("Build") {
+            steps {
+			    script {
+                   sh 'node -v'
+                   sh 'npm -v'
+                   sh 'npm install'
+						}
+              }
+			}
+			stage("Run") {
+            steps {
+			    script {
+                   sh 'npm start'
+						}
+              }
+			}
     }
 }
