@@ -1,5 +1,7 @@
 FROM node:8
 
+sudo usermod -a -G docker $USER
+
 # Create app directory
 WORKDIR /usr/src/app
 
