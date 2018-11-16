@@ -6,12 +6,21 @@ pipeline {
                 deleteDir ()
                 echo 'CleanUp Done'
                   }
-				      }
+				}
 		    stage("Checkout") {
             steps {
 			    echo 'checkout'
                 checkout scm
 				          }
               }
+			stage("Build") {
+            steps {
+			    script {
+                   sh 'node -v'
+                   sh 'npm -v'
+                   sh 'npm install'
+						}
+              }
+			}
     }
 }
