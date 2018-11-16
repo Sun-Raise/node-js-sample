@@ -16,7 +16,7 @@ pipeline {
 			stage("Build") {
             steps {
 			    script {
-                        sh 'sudo docker build -t node-test .'
+                        sh 'docker build -t node-test .'
 						}
               }
 			}
