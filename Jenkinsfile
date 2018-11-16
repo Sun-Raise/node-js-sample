@@ -13,21 +13,19 @@ pipeline {
                 checkout scm
 				          }
               }
-			stage("Build") {
-            steps {
-			    script {
+		stage('Docker Build') {
+		agent {
+		dockerfile {
+			filename 'Dockerfile'
+			}
+		}
+		steps {
+	       script {
                    sh 'node -v'
                    sh 'npm -v'
                    sh 'npm install'
-						}
-              }
 			}
-			stage("Run") {
-            steps {
-			    script {
-                   sh 'npm start'
-						}
-              }
 			}
+		}
     }
 }
