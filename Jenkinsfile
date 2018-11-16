@@ -16,7 +16,7 @@ pipeline {
 			stage("build") {
 					  docker.image('node:8').inside {
 
-					  stage("NPM Install ") {
+					  steps("NPM Install ") {
 						sh "npm install"
 					  }
 					  }
